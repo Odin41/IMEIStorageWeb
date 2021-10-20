@@ -1,0 +1,30 @@
+﻿@model IEnumerable<IMEIModel>
+@{
+    ViewData["Title"] = "IMEI";
+}
+
+<h5 class="card-header-tabs">IMEI</h5>
+
+<div>
+
+</div>
+<div>
+<table class="table-hover container">
+    <thead>
+        <tr>
+            <th>Дата добавления</th>
+            <th>IMEI</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var imei in Model)
+        {
+            <tr data-id="@imei.Id">
+                <td>@imei.AddedDate</td>
+                <td>@imei.Imei</td>
+            </tr>
+
+        }
+        </tbody>
+ </table>
+</div>
