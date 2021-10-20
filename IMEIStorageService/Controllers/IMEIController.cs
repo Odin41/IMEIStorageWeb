@@ -19,13 +19,13 @@ namespace IMEIStorageService.Controllers
             _DataContext = dataContext;
         }
 
-        [HttpGet]
+        [HttpGet("All")]
         public IEnumerable<IMEIModel> Get()
         {
             return _DataContext.Data.Where(p=>p.RemovedDate == null);
         }
 
-        [HttpPost("{imei}")]
+        [HttpPost("Add/{imei}")]
         public IMEIModel Post(string imei)
         {
             if (string.IsNullOrWhiteSpace(imei))
@@ -53,7 +53,7 @@ namespace IMEIStorageService.Controllers
             return model;
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public void Delete(int id)
         {
             IMEIModel model = _DataContext.Data.FirstOrDefault(p => p.Id == id);
