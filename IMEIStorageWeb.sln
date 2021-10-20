@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMEIStorageService", "IMEIStorageService\IMEIStorageService.csproj", "{00E66607-89D8-4B5A-813A-3EDA1C6F3173}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00E66607-89D8-4B5A-813A-3EDA1C6F3173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00E66607-89D8-4B5A-813A-3EDA1C6F3173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00E66607-89D8-4B5A-813A-3EDA1C6F3173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00E66607-89D8-4B5A-813A-3EDA1C6F3173}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBFAD990-6DCE-4385-9FE4-F37BB254F19A}
+	EndGlobalSection
+EndGlobal
