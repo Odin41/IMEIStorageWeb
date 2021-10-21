@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 
 namespace IMEIStorageService.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class IMEIController : ControllerBase
+    public class IMEIController
     {
         private DataContext _DataContext;
         public IMEIController(DataContext dataContext)
@@ -19,14 +17,13 @@ namespace IMEIStorageService.Controllers
             _DataContext = dataContext;
         }
 
-        [HttpGet("All")]
-        public IEnumerable<IMEIModel> Get()
+        public IEnumerable<IMEIModel> All()
         {
             return _DataContext.Data.Where(p=>p.RemovedDate == null);
         }
 
-        [HttpPost("Add/{imei}")]
-        public IMEIModel Post(string imei)
+     
+        public IMEIModel Add(string imei, string info)
         {
             if (string.IsNullOrWhiteSpace(imei))
             {
@@ -44,7 +41,7 @@ namespace IMEIStorageService.Controllers
             IMEIModel model = new IMEIModel();
             model.IMEI = imei;
             model.AddedDate = DateTime.Now;
-            model.AddedInfo = $"Address: {Request.HttpContext.Connection.RemoteIpAddress}:{Request.HttpContext.Connection.RemotePort}";
+            model.AddedInfo = info;
 
             _DataContext.Data.Add(model);
             _DataContext.SaveChanges();
@@ -53,7 +50,6 @@ namespace IMEIStorageService.Controllers
             return model;
         }
 
-        [HttpDelete("Delete/{id}")]
         public void Delete(int id)
         {
             IMEIModel model = _DataContext.Data.FirstOrDefault(p => p.Id == id);

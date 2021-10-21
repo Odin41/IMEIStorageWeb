@@ -5,10 +5,10 @@
     "version": "v1"
   },
   "paths": {
-    "/api/IMEI": {
+    "/api/IMEIAll": {
       "get": {
         "tags": [
-          "IMEI"
+          "WebAPI"
         ],
         "responses": {
           "200": {
@@ -43,10 +43,10 @@
         }
       }
     },
-    "/api/IMEI/{imei}": {
+    "/api/IMEIAdd/{imei}": {
       "post": {
         "tags": [
-          "IMEI"
+          "WebAPI"
         ],
         "parameters": [
           {
@@ -83,10 +83,10 @@
         }
       }
     },
-    "/api/IMEI/{id}": {
+    "/api/IMEIDelete/{id}": {
       "delete": {
         "tags": [
-          "IMEI"
+          "WebAPI"
         ],
         "parameters": [
           {
@@ -102,6 +102,44 @@
         "responses": {
           "200": {
             "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/IMEIAll2": {
+      "get": {
+        "tags": [
+          "WebAPIController2"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IMEIModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IMEIModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IMEIModel"
+                  }
+                }
+              }
+            }
           }
         }
       }
