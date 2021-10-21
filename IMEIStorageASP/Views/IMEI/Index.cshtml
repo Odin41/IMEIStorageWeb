@@ -2,29 +2,26 @@
 @{
     ViewData["Title"] = "IMEI";
 }
-
-<h5 class="card-header-tabs">IMEI</h5>
-
-<div>
-
+<div class="row">
+    <h5 >IMEIStorage</h5>
 </div>
 <div>
-<table class="table-hover container">
+<table class="table table-hover">
     <thead>
-        <tr>
+        <tr class="row-cols-2">
             <th>Дата добавления</th>
             <th>IMEI</th>
         </tr>
     </thead>
-    <tbody>
+    
         @foreach (var imei in Model)
         {
-            <tr data-id="@imei.Id">
+            <tr data-id="@imei.Id" class="row-cols-2">
                 <td>@imei.AddedDate</td>
                 <td>@imei.Imei</td>
             </tr>
 
         }
-        </tbody>
+        
  </table>
 </div>
