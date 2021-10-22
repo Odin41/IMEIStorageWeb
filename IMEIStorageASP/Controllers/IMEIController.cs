@@ -25,5 +25,10 @@ namespace IMEIStorageASP
 
             return View( res);
         }
+
+        public ActionResult IMEIAdd()
+        {
+            return PartialView("_IMEIAddForm");
+        }
     }
 }
