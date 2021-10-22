@@ -12,8 +12,7 @@ namespace IMEIStorageServiceTest
             //s.IMEIAll2Async
             //IMEIStorageServiceTest.swagger2Client t;
 
-
-
+          
 
             /*IMEIStorageServiceTest.swagger1Client s = new swagger1Client("http://192.168.2.69:5000", new System.Net.Http.HttpClient());
 
