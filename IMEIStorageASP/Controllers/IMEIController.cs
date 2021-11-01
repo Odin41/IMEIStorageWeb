@@ -23,12 +23,19 @@ namespace IMEIStorageASP
 
             var res = _Service.AllAsync().Result.ToList();
 
-            return View( res);
+            return View(res);
         }
 
-        public ActionResult IMEIAdd()
+        [HttpPost]
+        public ActionResult AddIMEI(string imei)
         {
-            return PartialView("_IMEIAddForm");
+            if (string.IsNullOrWhiteSpace(imei))
+            {
+                return NotFound();
+            }
+            _Service.AddAsync(imei);
+            var res = _Service.AllAsync().Result.ToList();
+            return View("Index", res);
         }
     }
 }

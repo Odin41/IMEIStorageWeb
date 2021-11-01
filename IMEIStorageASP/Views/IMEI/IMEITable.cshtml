@@ -1,0 +1,17 @@
+﻿<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">IMEI</th>
+            <th scope="col">Дата добавления</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var imei in Model)
+        {
+            <tr>
+                <td>@imei.Imei</td>
+                <td>@imei.AddedDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

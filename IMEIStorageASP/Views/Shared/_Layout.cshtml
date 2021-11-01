@@ -8,15 +8,25 @@
     <link href="~/css/bootstrap/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="accordion-body">
-        @RenderBody()
+    <div class="container">
+        <div class="accordion-body">
+            <div class="row mb-3">
+                <h2 class="display-6">IMEIStorage</h2>
+                <div class="text-end">
+                    <figcaption class="blockquote-footer">Добавлено всего: @Model?.Count</figcaption>
+                </div>
+            </div>
+            
+
+            @RenderBody()
+        </div>
+
+
+
+
+        <script src="~/js/jquery/jquery.js"></script>
+        <script src="~/css/bootstrap/js/bootstrap.js"></script>
     </div>
-
-
-
-
-    <script src="~/js/jquery/jquery.js"></script>
-    <script src="~/js/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

@@ -1,31 +1,9 @@
 ﻿@model IEnumerable<IMEIModel>
 @{
-    ViewData["Title"] = "IMEI";
+    ViewData["Title"] = "IMEIStorage";
 }
-<div class="row">
-    <h5 >IMEIStorage</h5>
-</div>
-<div class="row">
-    @await Html.PartialAsync("IMEIAddForm")
-</div>
 
-<div>
-<table class="table table-hover">
-    <thead>
-        <tr class="row-cols-2">
-            <th>Дата добавления</th>
-            <th>IMEI</th>
-        </tr>
-    </thead>
-    
-        @foreach (var imei in Model)
-        {
-            <tr data-id="@imei.Id" class="row-cols-2">
-                <td>@imei.AddedDate</td>
-                <td>@imei.Imei</td>
-            </tr>
+@await Html.PartialAsync("IMEIAddForm")
 
-        }
-        
- </table>
-</div>
+@await Html.PartialAsync("IMEITable")
+
