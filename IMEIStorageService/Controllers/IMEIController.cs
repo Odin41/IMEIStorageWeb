@@ -1,5 +1,6 @@
 ﻿using IMEIStorageService.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace IMEIStorageService.Controllers
 
         public IEnumerable<IMEIModel> All()
         {
-            return _DataContext.Data.Where(p=>p.RemovedDate == null);
+            return _DataContext.Data.AsNoTracking().Where(p=>p.RemovedDate == null);
         }
 
      

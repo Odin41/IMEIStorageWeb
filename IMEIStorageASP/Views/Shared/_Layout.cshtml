@@ -16,7 +16,7 @@
                     <figcaption class="blockquote-footer">Добавлено всего: @Model?.Count</figcaption>
                 </div>
             </div>
-            
+
 
             @RenderBody()
         </div>
@@ -26,7 +26,42 @@
 
         <script src="~/js/jquery/jquery.js"></script>
         <script src="~/css/bootstrap/js/bootstrap.js"></script>
+
     </div>
+    <script>
+
+        $(document).ready(function () {
+            $('#AddImei').on('click', function () {
+                var imei = $('#imei').val();
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    cache: false,
+                    url: 'IMEI/AddIMEI',
+                    data: { imei: imei },
+                    success: function (response, textStatus, jqXHR) {
+
+                        addImeiToTable(response);
+                        $('#imei').val('');
+                        //alert(parseInt(response.oldval) + ' changed to ' + newval);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Error - ' + errorThrown);
+                    }
+                });
+            });
+
+            function addImeiToTable(res)
+            {
+                var row = $('<tr><td>' + res.imei + '</td><td>' + res.addedDate +'</td></tr>');
+                $('#imeis tbody').prepend(row);
+            }
+
+
+        });
+
+
+    </script>
 </body>
 
 </html>

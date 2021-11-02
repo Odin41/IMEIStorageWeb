@@ -33,9 +33,9 @@ namespace IMEIStorageASP
             {
                 return NotFound();
             }
-            _Service.AddAsync(imei);
-            var res = _Service.AllAsync().Result.ToList();
-            return View("Index", res);
+            IMEIModel res = _Service.AddAsync(imei).Result;
+           // var res = _Service.AllAsync().Result.ToList();
+            return Json(res);
         }
     }
 }
