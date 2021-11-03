@@ -29,10 +29,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="libman.json" />
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
-    <Content Include="src\components\Home.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="babel.config.js" />
+    <Content Include="src\components\IMEIAddForm.vue" />
+    <Content Include="src\components\IMEIList.vue" />
     <Content Include="src\main.js" />
   </ItemGroup>
   <PropertyGroup>

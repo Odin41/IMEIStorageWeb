@@ -1,16 +1,22 @@
 <template>
     <div id="app">
-        <Home msg="Hello world!" />
+        <h1>IMEIStorage</h1>
+        <hr />
+        <IMEIAddForm />
+        <IMEIList />
     </div>
 </template>
 
 <script>
-    import Home from './components/Home.vue';
+    import  IMEIAddForm from '@/components/IMEIAddForm'
+    import IMEIList from '@/components/IMEIList'
+
 
     export default {
         name: 'app',
         components: {
-            Home
+            IMEIList: IMEIList,
+            IMEIAddForm: IMEIAddForm
         }
     };
 </script>
