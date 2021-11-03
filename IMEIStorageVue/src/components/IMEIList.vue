@@ -23,7 +23,7 @@
             },
             mounted() {
                 axios
-                    .get('http://127.0.0.1:5000/api/IMEIAll', {
+                    .get('http://192.168.2.69:5000/api/IMEIAll', {
                         headers: {
                             'Access-Control-Allow-Origin': '*',
                             'Access-Control-Allow-Methods': 'GET',

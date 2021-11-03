@@ -38,25 +38,5 @@ namespace IMEIStorageService.Controllers
             _IMEIController.Delete(id);
         }
     }
-
-
-    [Route("api")]
-    [ApiController]
-    public class WebAPIController2 : ControllerBase
-    {
-        private IMEIController _IMEIController;
-
-        public WebAPIController2(DataContext dataContext)
-        {
-            _IMEIController = new IMEIController(dataContext);
-        }
-
-
-        [HttpGet("IMEIAll2")]
-        public IEnumerable<IMEIModel> IMEIAll2()
-        {
-            return _IMEIController.All();
-        }
-
-    }
+    
 }
