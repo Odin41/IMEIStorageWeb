@@ -53,7 +53,10 @@
 
             function addImeiToTable(res)
             {
-                var row = $('<tr><td>' + res.imei + '</td><td>' + res.addedDate +'</td></tr>');
+                var date = new Date(res.addedDate);
+
+                var m = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                var row = $('<tr><td>' + res.imei + '</td><td>' + m +'</td></tr>');
                 $('#imeis tbody').prepend(row);
             }
 
