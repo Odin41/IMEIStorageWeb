@@ -46,6 +46,7 @@
     <Content Include="babel.config.js" />
     <Content Include="src\components\IMEIAddForm.vue" />
     <Content Include="src\components\IMEIList.vue" />
+    <Content Include="src\components\IMEIModel.vue" />
     <Content Include="src\main.js" />
   </ItemGroup>
   <PropertyGroup>

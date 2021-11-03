@@ -34,6 +34,13 @@ namespace IMEIStorageService
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MSConnection")));
 
+            services.AddCors(options => options.AddPolicy("AllowAccess_to_API",
+                policy => policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                ));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "IMEIStorageService", Version = "v1" });
@@ -43,11 +50,20 @@ namespace IMEIStorageService
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
 
             }
+
+            //app.UseCors(builder =>
+            //{
+            //    builder.AllowAnyOrigin()
+            //            .AllowAnyMethod()
+            //            .AllowAnyHeader();
+            //});
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "IMEIStorageService v1"));
@@ -55,6 +71,8 @@ namespace IMEIStorageService
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("AllowAccess_to_API");
 
             app.UseAuthorization();
 

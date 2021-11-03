@@ -17,8 +17,14 @@
   export default {
     data() {
       return {
-        imei: ''
+          imei: '',
+         
       }
-    }
+        },
+        methods:
+        {
+           
+        }
+
   }
 </script>
