@@ -31,16 +31,22 @@
   <ItemGroup>
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
+    <Content Include="src\api\api.js" />
+    <Content Include="src\api\index.js" />
+    <Content Include="src\api\instance.js" />
     <Content Include="src\App.vue" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\plugins\apiPlugin.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
     <Folder Include="public\" />
     <Folder Include="src\" />
+    <Folder Include="src\api\" />
     <Folder Include="src\assets\" />
     <Folder Include="src\components\" />
+    <Folder Include="src\plugins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="babel.config.js" />

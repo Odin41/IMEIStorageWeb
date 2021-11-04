@@ -13,7 +13,7 @@ namespace IMEIStorageASP
 
         public IMEIController()
         {
-            _Service = new Service("http://dswork:5000", new System.Net.Http.HttpClient());
+            _Service = new Service("http://127.0.0.1:5000", new System.Net.Http.HttpClient());
         }
 
 

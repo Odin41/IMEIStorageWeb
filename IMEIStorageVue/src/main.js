@@ -11,7 +11,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 //import './app.scss'
 
+import ApiPlugin from './plugins/apiPlugin'
+
 Vue.use(BootstrapVue);
+Vue.use(ApiPlugin);
 //Vue.use(VueAxios, axios);
 Vue.config.productionTip = true;
 
