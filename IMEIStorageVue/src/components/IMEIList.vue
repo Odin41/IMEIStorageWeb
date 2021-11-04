@@ -16,14 +16,24 @@
             data() {
                 
                 return {
-                    fields: [{ key: 'imei', label: "IMEI" }, { key: 'addedDate', label:"Дата добавления"}],
+                    fields: [
+                        { key: 'imei', label: "IMEI" },
+                        {
+                            key: 'addedDate',
+                            label: "Дата добавления",
+                            formatter: value => {
+                                var date = new Date(value);
+                                return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                            }
+                        }
+                    ],
                     items: [{ imei: '22', addedDate: 'sadasd' }],
                     list: null
                 }
             },
             mounted() {
                 axios
-                    .get('http://192.168.2.69:5000/api/IMEIAll', {
+                    .get('http://127.0.0.1:5000/api/IMEIAll', {
                         headers: {
                             'Access-Control-Allow-Origin': '*',
                             'Access-Control-Allow-Methods': 'GET',
