@@ -1,0 +1,60 @@
+﻿@inject HttpClient Http
+
+@if (models == null)
+{
+<p><em>Loading...</em></p>
+}
+else
+{
+<table id="imeis" class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">IMEI</th>
+            <th scope="col">Дата добавления</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var imei in models)
+        {
+            <tr>
+                <td>@imei.Imei</td>
+                <td>@imei.AddedDate.LocalDateTime.ToString("dd.MM.yyyy HH:mm:ss") </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+}
+
+@code {
+
+    private IMEIModel _Model = null;
+
+    [Parameter]
+    public IMEIModel Model {
+        get
+        {
+            return _Model;
+        }
+        set
+        {
+            if (value != null)
+            {
+                _Model = value;
+                models.Add(_Model);
+            }
+        }
+
+    }
+
+
+    private List<IMEIModel> models = new List<IMEIModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        Service service = new Service("http://127.0.0.1:5000", new System.Net.Http.HttpClient());
+        models = (List<IMEIModel>)(await service.IMEIAllAsync());
+    }
+
+}

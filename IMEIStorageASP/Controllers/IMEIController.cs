@@ -19,7 +19,7 @@ namespace IMEIStorageASP
 
         public IActionResult Index()
         {
-            var res = _Service.AllAsync().Result.ToList();
+            var res = _Service.IMEIAllAsync().Result.ToList();
             return View(res);
         }
 
@@ -30,7 +30,7 @@ namespace IMEIStorageASP
             {
                 return NotFound();
             }
-            IMEIModel res = _Service.AddAsync(imei).Result;
+            IMEIModel res = _Service.IMEIAddAsync(imei).Result;
             JsonResult jRes = Json(res);
             return jRes;
         }

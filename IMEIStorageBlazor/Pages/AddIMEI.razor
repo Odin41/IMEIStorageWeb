@@ -1,0 +1,49 @@
+﻿<div class="mb-3">
+    <div  class="row col-auto g-1 needs-validation" >
+        <div class="col">
+            <input @bind-value="imei" id="imei" name="imei" class="form-control" type="text" required placeholder="Введите IMEI" aria-label="default input example"/>
+        </div>
+        <div class="col">
+            <button id="AddImei" class="btn btn-primary" @onclick="Submit" >Добавить</button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    private string imei { get; set; }
+
+    private IMEIModel _Model = null;
+
+    [Parameter]
+    public IMEIModel Model {get
+        {
+            return _Model;
+        }
+        set
+        {
+            if (_Model != value)
+            {
+                _Model = value;
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<IMEIModel> ModelChanged { get; set; }
+
+
+    private async Task Submit()
+    {
+        Service service = new Service("http://127.0.0.1:5000", new HttpClient());
+
+        if (!string.IsNullOrEmpty(imei))
+        {
+            Model = await service.IMEIAddAsync(imei);
+            imei = "";
+            await ModelChanged.InvokeAsync(Model);
+            //IMEIList.
+        }
+    }
+}
